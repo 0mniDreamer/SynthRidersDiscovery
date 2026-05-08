@@ -1,7 +1,7 @@
 using MelonLoader;
 using UnityEngine;
 
-[assembly: MelonInfo(typeof(SynthRidersDiscovery.Main), "Synth Riders Discovery", "1.0.0", "Community")]
+[assembly: MelonInfo(typeof(SynthRidersDiscovery.Main), "Synth Riders Discovery", "1.0.0", "0mniDreamer")]
 [assembly: MelonGame("Kluge Interactive", "SynthRiders")]
 
 namespace SynthRidersDiscovery;

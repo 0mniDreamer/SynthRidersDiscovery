@@ -11,7 +11,7 @@
     <Product>Synth Riders Discovery Tool</Product>
     <Description>Discover all available events, managers, and hookable methods in Synth Riders</Description>
     <Version>1.0.0</Version>
-    <Authors>Community</Authors>
+    <Authors>0mnidreamer</Authors>
 	<SynthRidersPath>F:\SteamLibrary\steamapps\common\SynthRiders</SynthRidersPath>
     
     <!-- Suppress warnings for IL2CPP compatibility -->
