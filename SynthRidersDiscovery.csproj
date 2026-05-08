@@ -1,0 +1,72 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>disable</Nullable>
+    <LangVersion>latest</LangVersion>
+    
+    <!-- MelonLoader mod settings -->
+    <AssemblyName>SynthRidersDiscovery</AssemblyName>
+    <Product>Synth Riders Discovery Tool</Product>
+    <Description>Discover all available events, managers, and hookable methods in Synth Riders</Description>
+    <Version>1.0.0</Version>
+    <Authors>Community</Authors>
+	<SynthRidersPath>F:\SteamLibrary\steamapps\common\SynthRiders</SynthRidersPath>
+    
+    <!-- Suppress warnings for IL2CPP compatibility -->
+    <NoWarn>$(NoWarn);CS8600;CS8602;CS8603;CS8604;CS8618;CS8625</NoWarn>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- MelonLoader references - paths configured in Directory.Build.props -->
+    <Reference Include="MelonLoader">
+      <HintPath>$(SynthRidersPath)\MelonLoader\net6\MelonLoader.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    
+    <Reference Include="Il2Cppmscorlib">
+      <HintPath>$(SynthRidersPath)\MelonLoader\Il2CppAssemblies\Il2Cppmscorlib.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    
+    <Reference Include="Il2CppSystem">
+      <HintPath>$(SynthRidersPath)\MelonLoader\Il2CppAssemblies\Il2CppSystem.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    
+    <Reference Include="Il2CppInterop.Runtime">
+      <HintPath>$(SynthRidersPath)\MelonLoader\net6\Il2CppInterop.Runtime.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    
+    <!-- Unity references -->
+    <Reference Include="UnityEngine">
+      <HintPath>$(SynthRidersPath)\MelonLoader\Il2CppAssemblies\UnityEngine.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    
+    <Reference Include="UnityEngine.CoreModule">
+      <HintPath>$(SynthRidersPath)\MelonLoader\Il2CppAssemblies\UnityEngine.CoreModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    
+    <Reference Include="UnityEngine.InputLegacyModule">
+      <HintPath>$(SynthRidersPath)\MelonLoader\Il2CppAssemblies\UnityEngine.InputLegacyModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    
+    <!-- Game assembly (for scanning) -->
+    <Reference Include="Assembly-CSharp">
+      <HintPath>$(SynthRidersPath)\MelonLoader\Il2CppAssemblies\Assembly-CSharp.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+  </ItemGroup>
+
+  <!-- Auto-copy to Mods folder after build -->
+  <Target Name="CopyToMods" AfterTargets="Build">
+    <Copy SourceFiles="$(TargetPath)" DestinationFolder="$(SynthRidersPath)\Mods" SkipUnchangedFiles="true" />
+    <Message Importance="High" Text="Copied $(TargetFileName) to Mods folder" />
+  </Target>
+
+</Project>
